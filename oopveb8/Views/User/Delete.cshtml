@@ -1,0 +1,18 @@
+﻿@model oopveb8.Models.User
+
+<h2>Видалити користувача</h2>
+
+<h4>Ви впевнені, що хочете видалити цього користувача?</h4>
+<div>
+    <h4>@Model.FirstName @Model.LastName</h4>
+    <p>Email: @Model.Email</p>
+    <p>Дата реєстрації: @Model.RegistrationDate.ToShortDateString()</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <input type="submit" value="Видалити" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Скасувати</a>
+    </div>
+</form>

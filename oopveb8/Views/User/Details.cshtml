@@ -1,0 +1,19 @@
+﻿@model oopveb8.Models.User
+
+<h2>Деталі користувача</h2>
+
+<dl class="row">
+    <dt class="col-sm-2">Ім'я</dt>
+    <dd class="col-sm-10">@Model.FirstName</dd>
+
+    <dt class="col-sm-2">Прізвище</dt>
+    <dd class="col-sm-10">@Model.LastName</dd>
+
+    <dt class="col-sm-2">Email</dt>
+    <dd class="col-sm-10">@Model.Email</dd>
+
+    <dt class="col-sm-2">Дата реєстрації</dt>
+    <dd class="col-sm-10">@Model.RegistrationDate.ToShortDateString()</dd>
+</dl>
+
+<a asp-controller="User" asp-action="Index" class="btn btn-secondary">Назад до списку</a>

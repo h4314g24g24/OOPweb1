@@ -1,0 +1,37 @@
+﻿@model IEnumerable<oopveb8.Models.User>
+
+<h2>Список користувачів</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>Email</th>
+            <th>Дата реєстрації</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.Email</td>
+                <td>@user.RegistrationDate.ToShortDateString()</td>
+                <td>
+                    <!-- Кнопка Редагувати -->
+                    <a href="@Url.Action("Edit", "User", new { id = user.Id })" class="btn btn-sm btn-info">Редагувати</a>
+
+                    <!-- Кнопка Видалити з підтвердженням -->
+                    <a href="@Url.Action("Delete", "User", new { id = user.Id })" class="btn btn-sm btn-danger"
+                       onclick="return confirm('Ви впевнені, що хочете видалити цього користувача?');">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Кнопка Додати користувача -->
+<a href="@Url.Action("Create", "User")" class="btn btn-primary">Додати користувача</a>
